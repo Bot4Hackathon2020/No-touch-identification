@@ -4,10 +4,12 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "electron-forge start",
     "pack": " electron-builder --dir ",
     "dist": " electron-builder --win --x64 ",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -20,17 +22,50 @@
   "author": "ChenZi-Hong",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^11.0.3",
-    "electron-builder": "^22.9.1"
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "electron": "^11.0.3"
   },
   "build": {
-    "electronDownload":{
-      "mirror":"https://npm.taobao.org/mirrors/electron/"
+    "electronDownload": {
+      "mirror": "https://npm.taobao.org/mirrors/electron/"
     },
     "appId": "191250014",
     "mac": {
       "category": "assistant"
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "testapp"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
 }
