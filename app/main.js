@@ -6,6 +6,7 @@ try {
   require('electron-reloader')(module,{});
 } catch (_) {}
 
+
 const path = require('path')
 
 function createWindow () {
@@ -18,6 +19,8 @@ function createWindow () {
     //设置背景透明(Linux下好像会变黑)
     transparent:false,
     webPreferences: {
+      //支持完整node
+      nodeIntegration: true,
       preload: path.join(__dirname, 'preload.js')
     }
   })
@@ -26,7 +29,7 @@ function createWindow () {
   mainWindow.loadFile('index.html')
 
   // Open the DevTools.不要可以直接注释掉
-  //mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished
@@ -51,3 +54,26 @@ app.on('window-all-closed', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+
+//使用nodejs调用python程序的样例(使用子进程的方法)
+let pyProc = null
+let pyPort = null
+
+const createPyProc = () => {
+  let port = '4242'
+  let script = path.join(__dirname, 'py', 'api.py')
+  pyProc = require('child_process').spawn('python3', [script, port])
+  if (pyProc != null) {
+    console.log('child process success')
+  }
+}
+
+const exitPyProc = () => {
+  pyProc.kill()
+  pyProc = null
+  pyPort = null
+}
+
+app.on('ready', createPyProc)
+app.on('will-quit', exitPyProc)
