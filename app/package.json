@@ -1,10 +1,13 @@
 {
-  "name": "electron-quick-start",
+  "name": "testapp",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": " electron-builder --dir ",
+    "dist": " electron-builder --win --x64 ",
+    "postinstall": "electron-builder install-app-deps"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -14,9 +17,20 @@
     "tutorial",
     "demo"
   ],
-  "author": "GitHub",
+  "author": "ChenZi-Hong",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^11.0.3"
-  }
+    "electron": "^11.0.3",
+    "electron-builder": "^22.9.1"
+  },
+  "build": {
+    "electronDownload":{
+      "mirror":"https://npm.taobao.org/mirrors/electron/"
+    },
+    "appId": "191250014",
+    "mac": {
+      "category": "assistant"
+    }
+  },
+  "dependencies": {}
 }
