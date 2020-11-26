@@ -1,6 +1,11 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 
+// 热加载
+try {
+  require('electron-reloader')(module,{});
+} catch (_) {}
+
 const path = require('path')
 
 function createWindow () {
@@ -10,6 +15,8 @@ function createWindow () {
     height: 600,
     //将frame设为-没有标题栏
     frame: false,
+    //设置背景透明(Linux下好像会变黑)
+    transparent:false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
