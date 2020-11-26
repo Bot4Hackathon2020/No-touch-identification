@@ -1,4 +1,4 @@
-## quick start
+## 一、quick start
 
 ```
 # Clone this repository
@@ -27,7 +27,7 @@ npm start
 
 
 
-## 打包 Electron
+## 二、打包 Electron（不全）
 
 ​    制作好属于自己的 Electron 工程后，我们需要将它**打包为可执行程序**才可以分享给好友，使好友们双击它就可以运行你的作品。
 
@@ -68,7 +68,7 @@ build --win --ia32
 
 ​    耐心等待打包完成，**在 dist\win-ia32-unpacked 目录下就是你所想要的程序了。**
 
-## 五、使用 jquery
+## 三、使用 jquery
 
 **jquery 是一个非常方便的 JavaScript 库，但在 Electron 中却可能出现无法使用的状况**。
 
@@ -83,3 +83,58 @@ build --win --ia32
 ```
 
 ​    这样 jquery 就**可以正常使用了。**
+
+## 四、热加载
+
+electron-reloader安装
+
+执行下面的`npm`命令来安装electron-reloader。
+
+```
+npm install --save-dev electron-reloader
+```
+
+安装成功后，package.json内容如下：
+
+```
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "a Electron Demo Application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Woods",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^9.1.0",
+    "electron-reloader": "^1.0.1"
+  }
+}
+```
+
+然后，我们在main.js（Electron项目入口文件）文件中增加如下代码，引入electron-reloader。
+
+```
+const { app, BrowserWindow } = require('electron')
+
+// 热加载
+try {
+  require('electron-reloader')(module,{});
+} catch (_) {}
+
+function createWindow () {   
+  // 创建浏览器窗口
+  const win = new BrowserWindow({
+...
+```
+
+最后，通过electron的启动命令重新启动项目。
+
+```
+npm start
+```
+
+这个时候，当我们修改项目文件，就可以直接在项目窗口中看到变化了，无须每次重新启动项目。
