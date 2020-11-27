@@ -25,6 +25,8 @@ https://github.com/WannaFy/Mask-detector
 
 项目名称：待定
 
+需求文档：https://github.com/homework-is-stupid/No-touch-identification/tree/main/docs/%E9%9C%80%E6%B1%82
+
 受众：
 
 实现功能：
