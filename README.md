@@ -3,6 +3,8 @@ programming for Hackson2020@华东
 
 ## 👋 团队名称：homework is stupid
 
+## 团队成员： 陈子鸿、汪福运、丁炳智、顾龙
+
 提交说明：
 
 https://hackathon2020eastchina.top/2020/11/24/commit/
