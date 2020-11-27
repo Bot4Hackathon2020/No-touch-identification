@@ -3,6 +3,10 @@ programming for Hackson2020@华东
 
 ## 👋 团队名称：homework is stupid
 
+提交说明：
+
+https://hackathon2020eastchina.top/2020/11/24/commit/
+
 #### 参考的开源项目：
 
 https://github.com/vdjango/MaskFace
