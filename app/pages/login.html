@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Admin Page</title>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/login.css">
+  </head>
+  <body class="">
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Please login</h1>
+						<p>口罩识别 &nbsp;•&nbsp; 语音交流 &nbsp;•&nbsp; 智能门禁系统</p>
+						<div class="container w3">
+							<h2>Login Now</h2>
+							<form action="#" method="post">
+								<div class="username">
+									<span class="username">Username:</span>
+									<input type="text" name="name" class="name" placeholder="" required="">
+									<div class="clear"></div>
+								</div>
+								<div class="password-agileits">
+									<span class="username">Password:</span>
+									<input type="password" name="password" class="password" placeholder="" required="">
+									<div class="clear"></div>
+								</div>
+								<div class="rem-for-agile">
+									<input type="checkbox" name="remember" class="remember">Remember me<br>
+									<a href="#">Forgot Password</a><br>
+								</div>
+								<div class="login-w3">
+										<input type="button" class="login" id="toAdmin" value="Login">
+								</div>
+								<div class="clear"></div>
+							</form>
+						</div>
+					</header>
+				<!-- Footer -->
+					<footer id="footer">
+            			<span class="assignment"><a href="initial.html">返回初始界面</a></span>
+						<span class="copyright">© chenzihong<a href="http://www.chenzihong.com/">啦啦啦</a></span>
+					</footer>
+
+			</div>
+		</div>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="./js/login.js"></script>
+	  <script src="./../renderer.js"></script>
+</body>
+</html>
+

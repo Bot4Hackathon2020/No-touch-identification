@@ -6,7 +6,8 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>Initial Page</title>
-    <link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/buttons.css" />
   </head>
   <body class="">
 		<div id="wrapper">
@@ -18,13 +19,21 @@
 					<header id="header">
 						<h1>Adam Jensen(换成英文名)</h1>
 						<p>口罩识别 &nbsp;•&nbsp; 语音交流 &nbsp;•&nbsp; 智能门禁系统</p>
-						<nav>
-							<!--放按钮-->
+						<p></p>
+						<div class="bu">	
+						<button class="button button--winona button--border-thick button--round-l button--text-upper" id="toUser" data-text="Start Using"><span>开始使用</span></button>
+						<p></p>	
+						<button class="button button--winona button--border-thick button--round-l button--text-upper" id="toLogin" data-text="Admini"><span>管理员登录</span></button>
+						<p></p>	
+						<button class="button button--winona button--border-thick button--round-l button--text-upper" id="reset" data-text="Reset"><span>重新启动</span></button>
+						</div>
+							<nav>
 							<ul>
-								<li><a href="#" class="icon fa-twitter-square"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 								<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-								<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+								<li><a href="#" class="icon fa-wechat"><span class="label">Wechat</span></a></li>
+								<li><a href="909843505" class="icon fa-qq"><span class="label">QQ</span></a></li>
+								<li><a href="https://github.com/ChenZiHong-Gavin/No-touch-identification" class="icon fa-github"><span class="label">Github</span></a></li>
 								<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
 							</ul>
 						</nav>
@@ -32,18 +41,14 @@
 
 				<!-- Footer -->
 					<footer id="footer">
-            <span class="assignment"><a href="http://www.chenzihong.com/"></a>用户协议</span>
-						<span class="copyright">© chenzihong<a href="http://www.chenzihong.com/">啦啦啦</a></span>
+            			<span class="assignment"><a href="http://www.chenzihong.com/">用户协议</a></span>
+						<span class="copyright">©Copyright<a href="http://www.chenzihong.com/">啦啦啦</a></span>
 					</footer>
 
 			</div>
 		</div>
 		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-		<script>
-			window.onload = function() { document.body.className = ''; }
-			window.ontouchmove = function() { return false; }
-			window.onorientationchange = function() { document.body.scrollTop = 0; }
-		</script>
+	  <script src="./js/initial.js"></script>
 	  <script src="./../renderer.js"></script>
 </body>
 </html>
