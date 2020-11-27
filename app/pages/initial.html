@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Initial Page</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body class="">
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Adam Jensen(换成英文名)</h1>
+						<p>口罩识别 &nbsp;•&nbsp; 语音交流 &nbsp;•&nbsp; 智能门禁系统</p>
+						<nav>
+							<!--放按钮-->
+							<ul>
+								<li><a href="#" class="icon fa-twitter-square"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+								<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+								<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Footer -->
+					<footer id="footer">
+            <span class="assignment"><a href="http://www.chenzihong.com/"></a>用户协议</span>
+						<span class="copyright">© chenzihong<a href="http://www.chenzihong.com/">啦啦啦</a></span>
+					</footer>
+
+			</div>
+		</div>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script>
+			window.onload = function() { document.body.className = ''; }
+			window.ontouchmove = function() { return false; }
+			window.onorientationchange = function() { document.body.scrollTop = 0; }
+		</script>
+	  <script src="./../renderer.js"></script>
+</body>
+</html>
+
