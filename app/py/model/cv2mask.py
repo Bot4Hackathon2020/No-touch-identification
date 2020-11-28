@@ -9,9 +9,13 @@ import time
 def run():
     network = Network_simple_cnn()
     mymodel = Models(network, None, None, None)
-    mymodel.model_load("simple-CNN.pkl")
 
-    left_eye_detector = cv2.CascadeClassifier('haarcascade_righteye_2splits.xml')
+    #path必须是绝对地址
+    path = "C:/Users/DRACO/WebstormProjects/No-touch-identification/app/py/model/"
+
+    mymodel.model_load(path + "simple-CNN.pkl")
+
+    left_eye_detector = cv2.CascadeClassifier(path + 'haarcascade_righteye_2splits.xml')
     cap = cv2.VideoCapture(0)
     font = cv2.FONT_HERSHEY_SIMPLEX
     normalize = transforms.Normalize(
