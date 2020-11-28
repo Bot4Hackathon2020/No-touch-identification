@@ -12,7 +12,7 @@
 
 ## 测试场景
 
-1、人员已佩戴口罩^*^，检测结果为“已佩戴”，通过门禁
+1、人员已佩戴口罩，检测结果为“已佩戴”，通过门禁
 
 ![img](http://m.qpic.cn/psc?/V10qPHDm2OqGNV/ruAMsa53pVQWN7FLK88i5jIcgr6jHvq3mD0gdeKoun66a.JPA0b7KLFq7Ayt9eoXINsQ7lE5*633t0u4NBKC.wpno6h.1orrwTZKWb*9BNY!/b&bo=AgblAAAAAAADB8M!&rf=viewer_4)
 
