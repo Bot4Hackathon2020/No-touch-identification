@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-	  <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://openapi.tuling123.com/openapi/api/v2 http://tts.baidu.com/; script-src 'self'">
+	  <meta http-equiv="Content-Security-Policy" content="connect-src 'self' http://openapi.tuling123.com/openapi/api/v2 http://tts.baidu.com/; script-src 'self'">
 	  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self' http://openapi.tuling123.com/openapi/api/v2;connect-src 'self';script-src 'self';">
 	  <title>User Page</title>
 	  <link rel="stylesheet" href="css/buttons.css">
@@ -24,9 +24,13 @@
 							<div class="bu">
 							<button class="button button--winona button--border-thick button--round-l button--text-upper" id="checkmask" data-text="detect"><span>检测口罩</span></button>
 							<p></p>
-							<button class="button button--winona button--border-thick button--round-l button--text-upper" id="chat" data-text="detect"><span>和我聊天</span></button>
+							<button class="button button--winona button--border-thick button--round-l button--text-upper" id="chat" data-text="chat"><span>和我聊天</span></button>
 						</div>
 						</nav>
+						<div class="app">
+							<button class="record-btn">record</button>
+							<audio controls class="audio-player"></audio>
+						</div>
 					</header>
 					
 				<!-- Footer -->
@@ -39,6 +43,7 @@
 		</div>
 		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 		<script src="./js/user.js"></script>
+		<script src="./js/recorder.js"></script>
 	  	<script src="./../renderer.js"></script>
 </body>
 </html>

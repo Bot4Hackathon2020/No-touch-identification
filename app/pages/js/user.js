@@ -1,7 +1,7 @@
 window.onload = function() { document.body.className = ''; }
 window.ontouchmove = function() { return false; }
 window.onorientationchange = function() { document.body.scrollTop = 0; }
-
+const path = require("path"); 
 function welcome() {
     x = document.getElementById("welcome");
     setTimeout(function () {
@@ -60,11 +60,12 @@ function talk(mess) {
 const {PythonShell}  = require("python-shell");
 
 //path需要是绝对地址
+//(可以用相对地址，已经解决)
 let MaskOptions = {
     mode: 'text',
     pythonPath: '/usr/bin/python3',
     pythonOptions: [],
-    scriptPath: '/data/home/chen/课件/project/No-touch-identification/app/py/model',
+    scriptPath: path.resolve(__dirname, "../py/model"),
     args: []
 };
 
@@ -174,7 +175,7 @@ HttpClient.setRequestInterceptor(function(requestOptions) {
 });
 
 let fs = require('fs');
-let voice = fs.readFileSync('//data/home/chen/课件/project/No-touch-identification/app/pages/voice/20201128_214838.m4a');
+let voice = fs.readFileSync(path.resolve(__dirname, "./voice/20201128_214838.m4a"));
 
 let voiceBuffer = new Buffer(voice);
 
@@ -184,3 +185,5 @@ client.recognize(voiceBuffer, 'm4a', 16000).then(function (result) {
 }, function(err) {
     console.log(err);
 });
+
+//录音
