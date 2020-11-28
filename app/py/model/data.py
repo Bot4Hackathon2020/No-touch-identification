@@ -1,12 +1,10 @@
 from PIL import Image
-from torch import imag
 from torchvision import transforms
 from torch.utils.data import DataLoader,TensorDataset
 import os
 from tqdm import tqdm
 import torch
-import io
-import numpy as np
+
 
 class Data():
     def __init__(self,positive_path,negative_path):

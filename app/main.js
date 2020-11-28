@@ -6,6 +6,7 @@ try {
   require('electron-reloader')(module,{});
 } catch (_) {}
 
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 
 const path = require('path')
 
