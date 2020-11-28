@@ -59,9 +59,9 @@ const {PythonShell}  = require("python-shell");
 //path需要是绝对地址
 let MaskOptions = {
     mode: 'text',
-    pythonPath: 'C:\\Users\\DRACO\\Anaconda3\\python.exe',
+    pythonPath: '/usr/bin/python3',
     pythonOptions: [],
-    scriptPath: 'C:\\Users\\DRACO\\WebstormProjects\\No-touch-identification\\app\\py\\model',
+    scriptPath: '/data/home/chen/课件/project/No-touch-identification/app/py/model',
     args: []
 };
 
@@ -120,6 +120,7 @@ function runVoiceDetection(){
 // }
 
 var checkButton = document.getElementById("checkmask");
+var text = document.getElementById("text");
 
 checkButton.onclick = async function(){
     const result = await runMaskDetection();
