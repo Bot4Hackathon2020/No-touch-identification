@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "axios": "^0.21.0",
+    "baidu-aip-sdk": "^2.4.6",
     "electron-squirrel-startup": "^1.0.0"
   },
   "config": {
