@@ -27,6 +27,7 @@ def run():
     TIME = 10
     cnt = 0
     startTime = time.time()
+    localtime = str(time.time())
 
     while cap.isOpened():
         flag, frame = cap.read()
@@ -63,15 +64,16 @@ def run():
                     cnt += 1
                     if cnt > LIMIT:
                         print("have mask")
+                        cv2.imwrite("./pics" + localtime + ".jpg", frame)
                         return "no mask"
                 else:
                     result = "nomask"
                     cv2.putText(frame, result, (left - int(1.5 * h), top - int(1.5 * h)), font,
                                 2, (0, 0, 255), 2, cv2.LINE_AA)
-
         endTime = time.time()
         if endTime - startTime > TIME:
             print("no mask")
+            cv2.imwrite("./pics/" + localtime + ".jpg", frame)
             return "no mask"
 
         # print(face_zone)
