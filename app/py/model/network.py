@@ -1,19 +1,6 @@
-import datetime
 from data import Data
-import numpy as np
-import io
-import torch
-from tqdm import tqdm
-import os
-import torch.optim as optim
 import torch.nn as nn
-from torch.utils.data import DataLoader, TensorDataset
 from torch.nn import Conv2d,BatchNorm2d,ReLU,MaxPool2d,Sequential,Linear,Sigmoid,Dropout
-from PIL import Image
-from torch import imag
-from torch.nn.modules import loss
-from torchvision import transforms
-import torchvision.models as models
 
 class Network_simple_cnn(nn.Module):
     def __init__(self):
