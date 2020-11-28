@@ -38,12 +38,12 @@ function chat(content) {
             apiKey: "6b46e978d2ba4de6b01c1f0f97901b95",
             userId: "1"
         }
-      })
-      .then(function (resp) {
-        console.log("response", resp.data);
-      }, (err) => {
-        console.log(err);
-    });
+    })
+        .then(function (resp) {
+            console.log("response", resp.data);
+        }, (err) => {
+            console.log(err);
+        });
 }
 
 function talk(mess) {
@@ -51,4 +51,87 @@ function talk(mess) {
     var url = "http://tts.baidu.com/text2audio?cuid=baike&lan=ZH&ctp=1&pdt=301&vol=9&rate=32&per=0&tex=" + encodeURI(msg);
     var n = new Audio(url);
     n.play();
+}
+
+
+const {PythonShell}  = require("python-shell");
+
+//path需要是绝对地址
+let MaskOptions = {
+    mode: 'text',
+    pythonPath: 'C:\\Users\\DRACO\\Anaconda3\\python.exe',
+    pythonOptions: [],
+    scriptPath: 'C:\\Users\\DRACO\\WebstormProjects\\No-touch-identification\\app\\py\\model',
+    args: []
+};
+
+let VoiceOptions = {
+    mode: 'text',
+    pythonPath: 'C:\\Users\\DRACO\\Anaconda3\\python.exe',
+    pythonOptions: [],
+    scriptPath: 'C:\\Users\\DRACO\\WebstormProjects\\No-touch-identification\\app\\py\\model',
+    args: []
+};
+
+var MaskDetectionResult;
+var VoiceDetectionResult;
+var text = document.getElementById("title");
+function runMaskDetection(){
+    return new Promise(resolve => {
+        PythonShell.run(
+            "cv2mask.py", MaskOptions, function (err, results) {
+                if (err) throw err;
+                console.log('finish');
+                console.log('results', results);
+                MaskDetectionResult = results;
+                resolve("ok");
+            }
+        )
+    })
+}
+
+function runVoiceDetection(){
+    return new Promise(resolve => {
+        PythonShell.run(
+            //todo
+            "Baidu_api.py", VoiceOptions, function (err, results) {
+                if (err) throw err;
+                console.log('finish');
+                console.log('results', results);
+                VoiceDetectionResult = results;
+                resolve("ok");
+            }
+        );
+    });
+}
+
+// async function check() {
+//     if(MaskDetectionResult[0] === "no mask"){
+//         text.innerText = "没有口罩，说出 “重新检测”后重新检测";
+//         const restlt = await runVoiceDetection();
+//         if(VoiceDetectionResult[0] === "重新检测。"){
+//             const result = runMaskDetection();
+//             text.innerText = "检测到口罩"
+//         }
+//     }
+//     if(MaskDetectionResult[0] === "have mask"){
+//         text.innerText = "请通过"
+//     }
+// }
+
+var checkButton = document.getElementById("checkmask");
+
+checkButton.onclick = async function(){
+    const result = await runMaskDetection();
+    if(MaskDetectionResult == "no mask"){
+        text.innerText = "没有口罩，说出 “重新检测”后重新检测";
+        const restlt = runVoiceDetection();
+        if(VoiceDetectionResult == "重新检测。"){
+            const result = await runMaskDetection();
+            text.innerText = "检测到口罩"
+        }
+    }
+    if(MaskDetectionResult == "have mask"){
+        text.innerText = "请通过"
+    }
 }
