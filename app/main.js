@@ -6,6 +6,7 @@ try {
   require('electron-reloader')(module,{});
 } catch (_) {}
 
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 
 const path = require('path')
 
@@ -15,7 +16,7 @@ function createWindow () {
     width: 800,
     height: 600,
     //将frame设为-没有标题栏
-    frame: false,
+    //frame: false,
     //设置背景透明(Linux下好像会变黑)
     transparent:false,
     webPreferences: {
@@ -57,23 +58,23 @@ app.on('window-all-closed', function () {
 
 
 //使用nodejs调用python程序的样例(使用子进程的方法)
-let pyProc = null
-let pyPort = null
+// let pyProc = null
+// let pyPort = null
 
-const createPyProc = () => {
-  let port = '4242'
-  let script = path.join(__dirname, 'py', 'api.py')
-  pyProc = require('child_process').spawn('python3', [script, port])
-  if (pyProc != null) {
-    console.log('child process success')
-  }
-}
+// const createPyProc = () => {
+//   let port = '4242'
+//   let script = path.join(__dirname, 'py', 'api.py')
+//   pyProc = require('child_process').spawn('python3', [script, port])
+//   if (pyProc != null) {
+//     console.log('child process success')
+//   }
+// }
 
-const exitPyProc = () => {
-  pyProc.kill()
-  pyProc = null
-  pyPort = null
-}
+// const exitPyProc = () => {
+//   pyProc.kill()
+//   pyProc = null
+//   pyPort = null
+// }
 
-app.on('ready', createPyProc)
-app.on('will-quit', exitPyProc)
+// app.on('ready', createPyProc)
+// app.on('will-quit', exitPyProc)
