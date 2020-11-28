@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://openapi.tuling123.com/openapi/api/v2; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self' http://openapi.tuling123.com/openapi/api/v2;connect-src 'self';script-src 'self';">
-	<title>User Page</title>
+	  <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://openapi.tuling123.com/openapi/api/v2; script-src 'self'">
+	  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+	  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self' http://openapi.tuling123.com/openapi/api/v2;connect-src 'self';script-src 'self';">
+	  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>User Page</title>
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body class="">
@@ -16,10 +18,12 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1 id="welcome">Welcome!</h1>
+						<h1>Welcome!</h1>
 						<p>口罩识别 &nbsp;•&nbsp; 语音交流 &nbsp;•&nbsp; 智能门禁系统</p>
 						<nav>
-							<!--放按钮-->
+							<div class="bu">
+							<button class="button button--winona button--border-thick button--round-l button--text-upper" id="checkmask" data-text="detect"><span>检测口罩</span></button>
+							</div>
 						</nav>
 					</header>
 					
@@ -33,7 +37,7 @@
 		</div>
 		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 		<script src="./js/user.js"></script>
-	  <script src="./../renderer.js"></script>
+	  	<script src="./../renderer.js"></script>
 </body>
 </html>
 
