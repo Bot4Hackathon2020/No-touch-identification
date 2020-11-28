@@ -4,7 +4,9 @@ window.onorientationchange = function() { document.body.scrollTop = 0; }
 
 const viewpic = document.getElementById("viewpic");
 const {shell} = require('electron');
+// const {resolve} = require('path')
 
 viewpic.onclick = ()=>{
-    shell.openPath("C:\\Users\\DRACO\\WebstormProjects\\No-touch-identification\\app\\py\\model\\pics\\1606568385.8680809.jpg");
+    var a = __dirname.lastIndexOf("\\")
+    shell.openPath(__dirname.substr(0, a) + "\\py\\model\\pics");
 }
