@@ -11,11 +11,11 @@ def run():
     mymodel = Models(network, None, None, None)
 
     #path必须是绝对地址
-    path = "/data/home/chen/课件/project/No-touch-identification/app/py/model_mask_detection/"
+    #path = "D:/QQ文件/Models/No-touch-identification/app/py/model_mask_detection/"
 
-    mymodel.model_load(path + "simple-CNN.pkl")
+    mymodel.model_load("py/model_mask_detection/simple-CNN.pkl")
 
-    left_eye_detector = cv2.CascadeClassifier(path + 'haarcascade_righteye_2splits.xml')
+    left_eye_detector = cv2.CascadeClassifier("py/model_mask_detection/haarcascade_righteye_2splits.xml")
     cap = cv2.VideoCapture(0)
     font = cv2.FONT_HERSHEY_SIMPLEX
     normalize = transforms.Normalize(
@@ -37,6 +37,7 @@ def run():
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
+        #print(gray)
         face_zone = left_eye_detector.detectMultiScale(gray)
         # print(np.array(face_zone))
 
@@ -73,7 +74,7 @@ def run():
         endTime = time.time()
         if endTime - startTime > TIME:
             print("no mask")
-            cv2.imwrite("./pics/" + localtime + ".jpg", frame)
+            cv2.imwrite("py/model/pics/" + localtime + ".jpg", frame)
             return "no mask"
 
         # print(face_zone)
