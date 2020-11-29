@@ -8,5 +8,6 @@ const {shell} = require('electron');
 
 viewpic.onclick = ()=>{
     var a = __dirname.lastIndexOf("\\")
-    shell.openPath(__dirname.substr(0, a) + "\\py\\model\\pics");
+    // shell.openPath(__dirname.substr(0, a) + "\\py\\model\\pics");
+    window.location = './viewpic.html';
 }
