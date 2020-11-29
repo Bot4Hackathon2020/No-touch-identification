@@ -81,7 +81,8 @@ const {PythonShell}  = require("python-shell");
 //(可以用相对地址，已经解决)
 let MaskOptions = {
     mode: 'text',
-    pythonPath: 'D:/Python/setup/python.exe',
+    //pythonPath: 'D:/Python/setup/python.exe',
+    pythonPath: 'usr/bin/python3',
     pythonOptions: [],
     scriptPath: path.resolve(__dirname, "../py/model_mask_detection"),
     args: []
@@ -89,7 +90,8 @@ let MaskOptions = {
 
 let VoiceOptions = {
     mode: 'text',
-    pythonPath: 'D:/Python/setup/python.exe',
+    //pythonPath: 'D:/Python/setup/python.exe',
+    pythonPath: 'usr/bin/python3',
     pythonOptions: [],
     scriptPath: path.resolve(__dirname, "../py/record"),
     args: []

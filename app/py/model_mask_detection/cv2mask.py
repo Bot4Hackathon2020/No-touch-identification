@@ -74,7 +74,7 @@ def run():
         endTime = time.time()
         if endTime - startTime > TIME:
             print("no mask")
-            cv2.imwrite("./pics/" + localtime + ".jpg", frame)
+            cv2.imwrite("py/model/pics/" + localtime + ".jpg", frame)
             return "no mask"
 
         # print(face_zone)
