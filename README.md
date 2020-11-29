@@ -53,6 +53,34 @@ https://github.com/WannaFy/Mask-detector
 
 https://github.com/WannaFy/NLP-emotion-recognition
 
+#### 需要的依赖
+
+##### electron dependencies:
+
+```
+"electron-builder": "^22.9.1",
+"@electron-forge/cli": "^6.0.0-beta.54",
+"@electron-forge/maker-deb": "^6.0.0-beta.54",
+"@electron-forge/maker-rpm": "^6.0.0-beta.54",
+"@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+"@electron-forge/maker-zip": "^6.0.0-beta.54",
+"electron": "^11.0.3",
+"electron-reloader": "^1.0.1"
+```
+
+##### python dependencies:
+
+```python
+aip
+numpy
+opencv
+PIL
+pyaudio
+torh
+torchvision
+tqdm
+```
+
 #### **项目名称**：
 
 WearMask!—智能口罩检测门禁系统
