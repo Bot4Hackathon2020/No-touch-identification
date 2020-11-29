@@ -11,7 +11,7 @@ def run():
     mymodel = Models(network, None, None, None)
 
     #path必须是绝对地址
-    path = "/data/home/chen/课件/project/No-touch-identification/app/py/model/"
+    path = "/data/home/chen/课件/project/No-touch-identification/app/py/model_mask_detection/"
 
     mymodel.model_load(path + "simple-CNN.pkl")
 

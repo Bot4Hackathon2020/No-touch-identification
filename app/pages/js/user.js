@@ -83,7 +83,7 @@ let MaskOptions = {
     mode: 'text',
     pythonPath: '/usr/bin/python3',
     pythonOptions: [],
-    scriptPath: path.resolve(__dirname, "../py/model"),
+    scriptPath: path.resolve(__dirname, "../py/model_mask_detection"),
     args: []
 };
 
