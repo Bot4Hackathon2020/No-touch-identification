@@ -2,6 +2,20 @@ window.onload = function() { document.body.className = ''; }
 window.ontouchmove = function() { return false; }
 window.onorientationchange = function() { document.body.scrollTop = 0; }
 const path = require("path"); 
+let fs = require('fs');
+
+
+const fileToBuffer = (file) => {
+    return new Promise((r) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        r(reader.result);
+      };
+      reader.readAsArrayBuffer(file);
+    });
+  };
+  
+
 function welcome() {
     x = document.getElementById("welcome");
     setTimeout(function () {
@@ -29,6 +43,7 @@ welcome();
 const axios = require('axios');
 var Message="";
 function chat(content) {
+    x = document.getElementById("welcome");
     Message=content;
     axios.post('http://openapi.tuling123.com/openapi/api/v2', {
         perception: {
@@ -44,6 +59,9 @@ function chat(content) {
     })
         .then(function (resp) {
             console.log("response", resp.data);
+            console.log(resp.data["results"][0].values)
+            x.innerHTML=resp.data["results"][0].values.text;
+            talk(resp.data["results"][0].values.text);
         }, (err) => {
             console.log(err);
         });
@@ -71,9 +89,9 @@ let MaskOptions = {
 
 let VoiceOptions = {
     mode: 'text',
-    pythonPath: 'C:\\Users\\DRACO\\Anaconda3\\python.exe',
+    pythonPath: '/usr/bin/python3',
     pythonOptions: [],
-    scriptPath: 'C:\\Users\\DRACO\\WebstormProjects\\No-touch-identification\\app\\py\\model',
+    scriptPath: path.resolve(__dirname, "../py/record"),
     args: []
 };
 
@@ -98,7 +116,7 @@ function runVoiceDetection(){
     return new Promise(resolve => {
         PythonShell.run(
             //todo
-            "Baidu_api.py", VoiceOptions, function (err, results) {
+            "record.py", VoiceOptions, function (err, results) {
                 if (err) throw err;
                 console.log('finish');
                 console.log('results', results);
@@ -124,8 +142,15 @@ function runVoiceDetection(){
 // }
 
 var checkButton = document.getElementById("checkmask");
+var chatButton = document.getElementById("chat");
 var text = document.getElementById("text");
 
+chatButton.onclick = async function(){
+    text.innerText = "请在5秒内说话";
+    const result=await runVoiceDetection();
+    text.innerText = "说完了";
+    recog();
+}
 checkButton.onclick = async function(){
     const result = await runMaskDetection();
     if(MaskDetectionResult == "no mask"){
@@ -174,16 +199,24 @@ HttpClient.setRequestInterceptor(function(requestOptions) {
     return requestOptions;
 });
 
-let fs = require('fs');
-let voice = fs.readFileSync(path.resolve(__dirname, "./voice/20201128_214838.m4a"));
 
-let voiceBuffer = new Buffer(voice);
 
-// 识别本地文件
-client.recognize(voiceBuffer, 'm4a', 16000).then(function (result) {
-    console.log('<recognize>: ' + JSON.stringify(result));
-}, function(err) {
-    console.log(err);
-});
+function recog() {
+    let voice = fs.readFileSync(path.resolve(__dirname, "../voicename.wav"));
 
-//录音
+    let voiceBuffer = new Buffer(voice);
+    
+    // 识别本地文件
+    client.recognize(voiceBuffer, 'wav', 16000).then(function (result) {
+        console.log(result);
+        console.log('<recognize>: ' + JSON.stringify(result));
+        var dialog=JSON.stringify(result["result"][0]);
+        text.innerHTML=dialog;
+        chat(dialog)
+    }, function(err) {
+        console.log(err);
+    });
+    
+}
+
+
