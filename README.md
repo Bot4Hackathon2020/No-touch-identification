@@ -1,4 +1,7 @@
 # WearMask!—智能口罩检测门禁系统
+
+## 演示视频：https://github.com/homework-is-stupid/No-touch-identification/tree/main/app/video
+
 ###### programming for Hackson2020@华东
 
 ## 👋 团队名称：homework is stupid
