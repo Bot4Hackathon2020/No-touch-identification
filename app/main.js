@@ -2,9 +2,9 @@
 const {app, BrowserWindow} = require('electron')
 
 // 热加载
-try {
-  require('electron-reloader')(module,{});
-} catch (_) {}
+// try {
+//   require('electron-reloader')(module,{});
+// } catch (_) {}
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 
