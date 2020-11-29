@@ -320,4 +320,11 @@ input[type="button"]:hover{
 		width: 60%;
 		margin-top:10px;
 	}
+
 }
+	#warning{
+		color: crimson;
+		font-size: large;
+		visibility: hidden;
+	}
+

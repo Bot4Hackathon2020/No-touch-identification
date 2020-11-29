@@ -51,6 +51,8 @@ electron：https://www.electronjs.org/
 
 https://github.com/WannaFy/Mask-detector
 
+https://github.com/WannaFy/NLP-emotion-recognition
+
 #### **项目名称**：
 
 WearMask!—智能口罩检测门禁系统
